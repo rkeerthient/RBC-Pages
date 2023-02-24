@@ -35,19 +35,20 @@ export default function FAQs(inpData: any) {
           </div>
           <div className="mt-10 lg:col-span-7 lg:mt-0">
             <dl className="space-y-10">
-              {clData.map((faq: any) => (
-                <div key={faq.question}>
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
-                    {faq.question}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
-                    <MarkdownView
-                      markdown={faq.answer}
-                      options={{ tables: true, emoji: true }}
-                    />
-                  </dd>
-                </div>
-              ))}
+              {clData &&
+                clData.map((faq: any) => (
+                  <div key={faq.question}>
+                    <dt className="text-base font-semibold leading-7 text-gray-900">
+                      {faq.question}
+                    </dt>
+                    <dd className="mt-2 text-base leading-7 text-gray-600">
+                      <MarkdownView
+                        markdown={faq.answer}
+                        options={{ tables: true, emoji: true }}
+                      />
+                    </dd>
+                  </div>
+                ))}
             </dl>
           </div>
         </div>

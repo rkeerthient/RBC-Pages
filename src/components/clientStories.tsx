@@ -99,30 +99,31 @@ export default function ClientStories(inpData: any) {
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
           <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
-            {clData.map((testimonial: any) => (
-              <div className="pt-8 sm:inline-block sm:w-full sm:px-4">
-                <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
-                  <blockquote className="text-gray-900">
-                    <p className="font-bold mb-2">{`“${testimonial.title}”`}</p>
-                    <p>{`“${testimonial.description}”`}</p>
-                  </blockquote>
-                  <figcaption className="mt-6 flex items-center gap-x-4">
-                    {testimonial.photoGallery && (
-                      <img
-                        className="h-10 w-10 rounded-full bg-gray-50"
-                        src={testimonial.photoGallery[0].image.url}
-                        alt=""
-                      />
-                    )}
-                    <div>
-                      <div className="font-semibold text-gray-900">
-                        {testimonial.name}
+            {clData &&
+              clData.map((testimonial: any) => (
+                <div className="pt-8 sm:inline-block sm:w-full sm:px-4">
+                  <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+                    <blockquote className="text-gray-900">
+                      <p className="font-bold mb-2">{`“${testimonial.title}”`}</p>
+                      <p>{`“${testimonial.description}”`}</p>
+                    </blockquote>
+                    <figcaption className="mt-6 flex items-center gap-x-4">
+                      {testimonial.photoGallery && (
+                        <img
+                          className="h-10 w-10 rounded-full bg-gray-50"
+                          src={testimonial.photoGallery[0].image.url}
+                          alt=""
+                        />
+                      )}
+                      <div>
+                        <div className="font-semibold text-gray-900">
+                          {testimonial.name}
+                        </div>
                       </div>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
-            ))}
+                    </figcaption>
+                  </figure>
+                </div>
+              ))}
           </div>
         </div>
       </div>
