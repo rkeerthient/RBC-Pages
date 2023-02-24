@@ -29,7 +29,7 @@ export default function FAQs(inpData: any) {
                 className="font-semibold text-indigo-600 hover:text-indigo-500"
               >
                 customer support
-              </a>{" "}
+              </a> 
               team.
             </p>
           </div>

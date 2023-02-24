@@ -217,10 +217,10 @@ const Professional: Template<TemplateRenderProps> = ({
               </div>
             </div>
           </div> */}
-          <BlogPosts inpData={cpy}></BlogPosts>
+          {/* <BlogPosts inpData={cpy}></BlogPosts>
           <ClientStories inpData={cpy}></ClientStories>
           <FAQs inpData={cpy}></FAQs>
-          <Solutions inpData={cpy}></Solutions>
+          <Solutions inpData={cpy}></Solutions> */}
           {/* <Teams inpData={cpy}></Teams> */}
           {/* <div className="bg-white w-full">
             <div className="centered-container bg-white ">
