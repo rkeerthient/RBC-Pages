@@ -22,11 +22,13 @@ export default function BlogPosts(inpData: any) {
               className="flex flex-col overflow-hidden rounded-lg shadow-lg"
             >
               <div className="flex-shrink-0">
-                <img
-                  className="h-48 w-full object-cover"
-                  src={post.photoGallery[0].image.url}
-                  alt=""
-                />
+                {post.photoGallery && (
+                  <img
+                    className="h-48 w-full object-cover"
+                    src={post.photoGallery[0].image.url}
+                    alt=""
+                  />
+                )}
               </div>
               <div className="flex flex-1 flex-col justify-between bg-white p-6">
                 <div className="flex-1">
@@ -43,16 +45,18 @@ export default function BlogPosts(inpData: any) {
                   </a>
                 </div>
                 <div className="mt-6 flex items-center">
-                  <div className="flex-shrink-0">
-                    <a href={data.slug}>
-                      <span className="sr-only">{data.name}</span>
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={data.photoGallery[0].image.url}
-                        alt=""
-                      />
-                    </a>
-                  </div>
+                  {post.photoGallery && (
+                    <div className="flex-shrink-0">
+                      <a href={data.slug}>
+                        <span className="sr-only">{data.name}</span>
+                        <img
+                          className="h-10 w-10 rounded-full"
+                          src={data.photoGallery[0].image.url}
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  )}
                   <div className="ml-3">
                     <p className="text-sm font-medium text-gray-900">
                       <a href={data.slug} className="hover:underline">

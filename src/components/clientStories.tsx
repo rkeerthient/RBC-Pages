@@ -107,11 +107,13 @@ export default function ClientStories(inpData: any) {
                     <p>{`“${testimonial.description}”`}</p>
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-x-4">
-                    <img
-                      className="h-10 w-10 rounded-full bg-gray-50"
-                      src={testimonial.photoGallery[0].image.url}
-                      alt=""
-                    />
+                    {testimonial.photoGallery && (
+                      <img
+                        className="h-10 w-10 rounded-full bg-gray-50"
+                        src={testimonial.photoGallery[0].image.url}
+                        alt=""
+                      />
+                    )}
                     <div>
                       <div className="font-semibold text-gray-900">
                         {testimonial.name}
