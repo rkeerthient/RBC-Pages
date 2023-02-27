@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 export default function BlogPosts(inpData: any) {
   let data = inpData.inpData;
-  let clData = data.c_associatedBlogs;
+   let clData = data.c_associatedBlogs;
   const settings = {
     dots: false,
     infinite: false,
@@ -41,7 +41,7 @@ export default function BlogPosts(inpData: any) {
     ],
   };
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -70,8 +70,14 @@ export default function BlogPosts(inpData: any) {
                   </div>
                   <div className="flex flex-1 flex-col justify-between bg-white p-6">
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-indigo-600">
-                        <div className="hover:underline">{post.c_category}</div>
+                      <p className="text-sm font-medium flex gap-2">
+                        <time dateTime={data.c_datePublished}>
+                          {post.c_datePublished}
+                        </time>
+                        <span aria-hidden="true">&middot;</span> 
+                        <div className="hover:underline relative z-10 rounded-full bg-gray-200   px-3 font-medium text-gray-600 hover:bg-gray-100">
+                          {post.c_category}
+                        </div>
                       </p>
                       <a href={post.landingPageUrl} className="mt-2 block">
                         <p className="text-xl font-semibold text-gray-900">
@@ -101,14 +107,13 @@ export default function BlogPosts(inpData: any) {
                             href={data.landingPageUrl}
                             className="hover:underline"
                           >
-                            {data.name}
+                            {data.name.split("-")[0]}
                           </a>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
-                          <time dateTime={data.c_datePublished}>
-                            {data.c_datePublished}
-                          </time>
-                          <span aria-hidden="true">&middot;</span>
+                          <p className="text-gray-600">
+                            {data.name.split("-")[1]}
+                          </p>
                         </div>
                       </div>
                     </div>

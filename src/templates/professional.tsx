@@ -33,6 +33,7 @@ import ClientStories from "../components/clientStories";
 import FAQs from "../components/faqs";
 import Solutions from "../components/solutions";
 import Teams from "../components/Team";
+import Insights from "../components/relatedInsights";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -71,6 +72,7 @@ export const config: TemplateConfig = {
       "c_associatedInsights.title",
       "c_associatedInsights.description",
       "c_associatedInsights.name",
+      "c_associatedInsights.externalArticlePostDate",
       "c_associatedInsights.c_category",
       "c_associatedInsights.photoGallery",
       "c_associatedSolutions.landingPageUrl",
@@ -179,66 +181,76 @@ const Professional: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <span>
-        <div className="bg-gray-300 h-screen">
-          <div className="bg-white   w-full">
-            <div className="centered-container ">
-              <div className="section -bottom-24   bg-gray-200 ">
-                <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
-                  <div className="flex gap-6">
-                    <div>
-                      {photoGallery && (
-                        <Image
-                          className="inline-block h-32 w-32 rounded-full"
-                          image={photoGallery[0]}
-                        />
-                      )}
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <div>{name.substring(0, name.indexOf("-"))}</div>
-                      <div className="text-2xl">
-                        {mainPhone &&
-                          mainPhone
-                            .replace("+1", "")
-                            .replace(/\D+/g, "")
-                            .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full flex mt-4">
-                <div className="w-2/3">
-                  {description}
-                  <div className=" p-16 mx-auto my-auto">
-                    {geocodedCoordinate && (
-                      <StaticMap
-                        latitude={geocodedCoordinate.latitude}
-                        longitude={geocodedCoordinate.longitude}
-                      ></StaticMap>
+      {/* <Schema document={cpy}></Schema> */}
+      <span className="hidden md:block">
+        <Image image={_site.c_deskHeader}></Image>
+      </span>
+      {/* <span className="block md:hidden">
+        <Image image={_site.c_mobHeader}></Image>
+      </span> */}
+      <div className="bg-gray-300">
+        <div className="bg-white w-full">
+          <div className="centered-container ">
+            <div className="section -bottom-24   bg-gray-200 ">
+              <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
+                <div className="flex gap-6">
+                  <div>
+                    {photoGallery && (
+                      <Image
+                        className="inline-block h-32 w-32 rounded-full"
+                        image={photoGallery[0]}
+                      />
                     )}
                   </div>
-                </div>
-                <div className="w-1/3">
-                  <Contact address={address} phone={mainPhone}></Contact>
-                  <div className="mt-4">
-                    {hours && (
-                      <Hours title={"Restaurant Hours"} hours={hours} />
-                    )}
+                  <div className="flex flex-col gap-3">
+                    <div>{name.substring(0, name.indexOf("-"))}</div>
+                    <div className="text-2xl">
+                      {mainPhone &&
+                        mainPhone
+                          .replace("+1", "")
+                          .replace(/\D+/g, "")
+                          .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="w-full flex mt-4">
+              <div className="w-2/3">
+                {description}
+                <div className=" p-16 mx-auto my-auto">
+                  {geocodedCoordinate && (
+                    <StaticMap
+                      latitude={geocodedCoordinate.latitude}
+                      longitude={geocodedCoordinate.longitude}
+                    ></StaticMap>
+                  )}
+                </div>
+              </div>
+              <div className="w-1/3">
+                <Contact address={address} phone={mainPhone}></Contact>
+                <div className="mt-4">
+                  {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
+                </div>
+              </div>
+            </div>
           </div>
-
-          {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
-          {c_associatedClientStories && (
-            <ClientStories inpData={cpy}></ClientStories>
-          )}
-          {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
-          {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
         </div>
+
+        {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
+        {c_associatedClientStories && (
+          <ClientStories inpData={cpy}></ClientStories>
+        )}
+        {c_associatedInsights && <Insights inpData={cpy} />}
+        {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
+        {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
+      </div>
+      <span className="hidden md:block mt-4">
+        <Image image={_site.c_deskFooter}></Image>
       </span>
+      {/* <span className="block md:hidden">
+        <Image image={_site.c_mobFooter}></Image>
+      </span> */}
     </>
   );
 };

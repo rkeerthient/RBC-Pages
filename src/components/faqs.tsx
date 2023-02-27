@@ -16,7 +16,7 @@ export default function FAQs(inpData: any) {
   let clData = data.c_associatedFAQs;
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:py-40 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:pt-32  lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
             <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">

@@ -124,7 +124,7 @@ export default function ClientStories(inpData: any) {
     ],
   };
   return (
-    <div className="relative isolate bg-white pt-24 pb-32 sm:pt-32">
+    <div className="relative isolate bg-white pt-16 pb-32 sm:pt-32">
       <div className="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-30 blur-3xl">
         <svg
           viewBox="0 0 1313 771"
