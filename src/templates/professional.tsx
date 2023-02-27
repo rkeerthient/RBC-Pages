@@ -83,6 +83,7 @@ export const config: TemplateConfig = {
     // Defines the scope of entities that qualify for this stream.
     filter: {
       entityTypes: ["financialProfessional"],
+      savedFilterIds: ["1151082997"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
