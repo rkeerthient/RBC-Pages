@@ -1,11 +1,12 @@
 import * as React from "react";
+import { Image } from "@yext/pages/components";
 export default function solutions(inpData: any) {
   let data = inpData.inpData;
   let clData = data.c_associatedSolutions;
   return (
     <div className="bg-white mt-4 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center mb-4">
           <h2 className="text-3xl tracking-tight headColor sm:text-4xl">
             Solutions
           </h2>
@@ -19,11 +20,10 @@ export default function solutions(inpData: any) {
               >
                 <div className="relative mt-8 flex items-center gap-x-4">
                   {post.photoGallery && (
-                    <img
-                      src={post.photoGallery[0].image.url}
-                      alt=""
+                    <Image
                       className="h-10 w-10 rounded-full bg-gray-50"
-                    />
+                      image={post.photoGallery[0]}
+                    ></Image>
                   )}
                   <div className="text-sm leading-6">
                     <p className="text-gray-600">{post.name}</p>

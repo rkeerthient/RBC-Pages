@@ -1,15 +1,6 @@
 import * as React from "react";
 import MarkdownView from "react-showdown";
-
-/* This example requires Tailwind CSS v3.0+ */
-const faqs = [
-  {
-    question: "How do you make holy water?",
-    answer:
-      "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  // More questions...
-];
+import { Image } from "@yext/pages/components";
 
 export default function FAQs(inpData: any) {
   let data = inpData.inpData;

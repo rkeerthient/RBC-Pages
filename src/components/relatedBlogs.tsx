@@ -3,9 +3,11 @@ import Ce_blog from "../types/blog";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Image } from "@yext/pages/components";
+
 export default function BlogPosts(inpData: any) {
   let data = inpData.inpData;
-   let clData = data.c_associatedBlogs;
+  let clData = data.c_associatedBlogs;
   const settings = {
     dots: false,
     infinite: false,
@@ -61,11 +63,10 @@ export default function BlogPosts(inpData: any) {
                 >
                   <div className="flex-shrink-0">
                     {post.photoGallery && (
-                      <img
+                      <Image
                         className="h-48 w-full object-cover"
-                        src={post.photoGallery[0].image.url}
-                        alt=""
-                      />
+                        image={post.photoGallery[0]}
+                      ></Image>
                     )}
                   </div>
                   <div className="flex flex-1 flex-col justify-between bg-white p-6">
@@ -74,7 +75,7 @@ export default function BlogPosts(inpData: any) {
                         <time dateTime={data.c_datePublished}>
                           {post.c_datePublished}
                         </time>
-                        <span aria-hidden="true">&middot;</span> 
+                        <span aria-hidden="true">&middot;</span>
                         <div className="hover:underline relative z-10 rounded-full bg-gray-200   px-3 font-medium text-gray-600 hover:bg-gray-100">
                           {post.c_category}
                         </div>
@@ -93,11 +94,10 @@ export default function BlogPosts(inpData: any) {
                         <div className="flex-shrink-0">
                           <a href={data.landingPageUrl}>
                             <span className="sr-only">{data.name}</span>
-                            <img
+                            <Image
                               className="h-10 w-10 rounded-full"
-                              src={data.photoGallery[0].image.url}
-                              alt=""
-                            />
+                              image={data.photoGallery[0]}
+                            ></Image>
                           </a>
                         </div>
                       )}

@@ -222,12 +222,12 @@ const Professional: Template<TemplateRenderProps> = ({
                 </div>
               </div>
             </div>
-            <div className="w-full flex mt-4">
-              <div className="w-2/3">
+            <div className="w-full flex flex-col md:flex-row  mt-4">
+              <div className="w-full md:w-2/3 ">
                 <div className="text-xl font-semibold mb-4">About me</div>
 
                 {description}
-                <div className="py-4 px-16 mx-auto my-auto">
+                <div className="py-4 px-16 mx-auto my-auto hidden md:block">
                   {geocodedCoordinate && (
                     <StaticMap
                       latitude={geocodedCoordinate.latitude}
@@ -236,7 +236,7 @@ const Professional: Template<TemplateRenderProps> = ({
                   )}
                 </div>
               </div>
-              <div className="w-1/3">
+              <div className="w-full md:w-1/3">
                 <span className=" hidden md:block">
                   <div className="  gap-y-5">
                     <div className="text-xl font-semibold mb-4">Address</div>
