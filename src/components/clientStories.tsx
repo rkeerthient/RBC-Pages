@@ -161,11 +161,11 @@ export default function ClientStories(inpData: any) {
         </svg>
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl tracking-tight headColor sm:text-4xl">
             Testimonials
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="mt-2 text-lg  text-gray-600">
             We have worked with thousands of amazing people
           </p>
         </div>

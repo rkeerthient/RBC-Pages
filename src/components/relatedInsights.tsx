@@ -3,17 +3,18 @@ import * as React from "react";
 export default function Insights(inpData: any) {
   let data = inpData.inpData;
   let clData = data.c_associatedInsights;
- 
+
   return (
     <div className="bg-white ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Insights
-          </h2>
-
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl tracking-tight headColor sm:text-4xl">
+              Insights
+            </h2>
+          </div>
           <div
-            className="mt-16 space-y-20 lg:mt-20 lg:space-y-20"
+            className="mt-8 space-y-20 lg:mt-8 lg:space-y-20"
             style={{ height: "500px", overflow: "scroll" }}
           >
             {clData &&

@@ -188,8 +188,8 @@ const Professional: Template<TemplateRenderProps> = ({
       {/* <span className="block md:hidden">
         <Image image={_site.c_mobHeader}></Image>
       </span> */}
-      <div className="bg-gray-300">
-        <div className="bg-white w-full">
+      <div >
+        <div className="bg-white w-full mb-4">
           <div className="centered-container ">
             <div className="section -bottom-24   bg-gray-200 ">
               <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
@@ -203,7 +203,10 @@ const Professional: Template<TemplateRenderProps> = ({
                     )}
                   </div>
                   <div className="flex flex-col gap-3">
-                    <div>{name.substring(0, name.indexOf("-"))}</div>
+                    <div>{name.split("-")[0]}</div>
+                    <div className="text-3xl">
+                      {name.split("-")[1].replace("RBC Wealth Management ", "")}
+                    </div>
                     <div className="text-2xl">
                       {mainPhone &&
                         mainPhone
@@ -217,8 +220,10 @@ const Professional: Template<TemplateRenderProps> = ({
             </div>
             <div className="w-full flex mt-4">
               <div className="w-2/3">
+                <div className="text-xl font-semibold mb-4">About me</div>
+
                 {description}
-                <div className=" p-16 mx-auto my-auto">
+                <div className="py-4 px-16 mx-auto my-auto">
                   {geocodedCoordinate && (
                     <StaticMap
                       latitude={geocodedCoordinate.latitude}
@@ -228,9 +233,21 @@ const Professional: Template<TemplateRenderProps> = ({
                 </div>
               </div>
               <div className="w-1/3">
-                <Contact address={address} phone={mainPhone}></Contact>
-                <div className="mt-4">
-                  {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
+                <span className=" hidden md:block">
+                  <div className="  gap-y-5">
+                    <div className="text-xl font-semibold mb-4">Address</div>
+
+                    <div className="  gap-y-3">
+                      <div>{address.line1}</div>
+                      {address.line2 && <div>{address.line2}</div>}
+                      <div>
+                        {address.city}, {address.region} {address.postalCode}
+                      </div>
+                    </div>
+                  </div>
+                </span>
+                <div className="mt-8">
+                  {hours && <Hours title={"I'm available on"} hours={hours} />}
                 </div>
               </div>
             </div>
@@ -245,7 +262,7 @@ const Professional: Template<TemplateRenderProps> = ({
         {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
         {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
       </div>
-      <span className="hidden md:block mt-4">
+      <span className="hidden md:block mt-8">
         <Image image={_site.c_deskFooter}></Image>
       </span>
       {/* <span className="block md:hidden">
