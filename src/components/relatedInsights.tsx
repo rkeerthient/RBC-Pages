@@ -24,11 +24,13 @@ export default function Insights(inpData: any) {
                   className="relative isolate flex flex-col gap-8 lg:flex-row"
                 >
                   <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <img
-                      src={post.photoGallery[0].image.url}
-                      alt=""
-                      className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                    />
+                    {post.photoGallery && (
+                      <img
+                        src={post.photoGallery[0].image.url}
+                        alt=""
+                        className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+                      />
+                    )}
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                   </div>
                   <div>
@@ -56,11 +58,13 @@ export default function Insights(inpData: any) {
                     </div>
                     <div className="mt-6 flex border-t border-gray-900/5 pt-6">
                       <div className="relative flex items-center gap-x-4">
-                        <img
-                          src={data.photoGallery[0].image.url}
-                          alt=""
-                          className="h-10 w-10 rounded-full bg-gray-50"
-                        />
+                        {data.photoGallery && (
+                          <img
+                            src={data.photoGallery[0].image.url}
+                            alt=""
+                            className="h-10 w-10 rounded-full bg-gray-50"
+                          />
+                        )}
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-gray-900">
                             <a href={data.landingPageUrl}>

@@ -188,7 +188,7 @@ const Professional: Template<TemplateRenderProps> = ({
       {/* <span className="block md:hidden">
         <Image image={_site.c_mobHeader}></Image>
       </span> */}
-      <div >
+      <div>
         <div className="bg-white w-full mb-4">
           <div className="centered-container ">
             <div className="section -bottom-24   bg-gray-200 ">
@@ -203,9 +203,13 @@ const Professional: Template<TemplateRenderProps> = ({
                     )}
                   </div>
                   <div className="flex flex-col gap-3">
-                    <div>{name.split("-")[0]}</div>
+                    <div>{name.includes("-") ? name.split("-")[0] : name}</div>
                     <div className="text-3xl">
-                      {name.split("-")[1].replace("RBC Wealth Management ", "")}
+                      {name.includes("-")
+                        ? name
+                            .split("-")[1]
+                            .replace("RBC Wealth Management ", "")
+                        : ""}
                     </div>
                     <div className="text-2xl">
                       {mainPhone &&
