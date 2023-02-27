@@ -21,7 +21,7 @@ export default function solutions(inpData: any) {
                 <div className="relative mt-8 flex items-center gap-x-4">
                   {post.photoGallery && (
                     <Image
-                      className="h-10 w-10 rounded-full bg-gray-50"
+                      className="h-10 !w-10 rounded-full bg-gray-50"
                       image={post.photoGallery[0]}
                     ></Image>
                   )}

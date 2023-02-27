@@ -60,7 +60,7 @@ export default function Insights(inpData: any) {
                       <div className="relative flex items-center gap-x-4">
                         {data.photoGallery && (
                           <Image
-                            className="h-10 w-10 rounded-full bg-gray-50"
+                            className="h-10 !w-10 rounded-full bg-gray-50"
                             image={data.photoGallery[0]}
                           />
                         )}

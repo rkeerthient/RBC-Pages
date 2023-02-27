@@ -4,7 +4,14 @@
     "entityIds": ["4343719759278830624"]
   },
   "source": "knowledgeGraph",
-  "fields": ["name", "c_deskHeader", "c_deskFooter"],
+  "fields": [
+    "name",
+    "c_deskHeader",
+    "c_deskFooter",
+    "c_mobHeader",
+    "c_mobFooter",
+    "primaryPhoto"
+  ],
   "localization": {
     "locales": ["en"],
     "primary": false

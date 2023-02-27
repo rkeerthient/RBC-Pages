@@ -185,14 +185,21 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="hidden md:block">
         <Image image={_site.c_deskHeader}></Image>
       </span>
-      {/* <span className="block md:hidden">
+      <span className="block md:hidden">
         <Image image={_site.c_mobHeader}></Image>
-      </span> */}
+      </span>
       <div>
         <div className="bg-white w-full mb-4">
-          <div className="centered-container ">
-            <div className="section -bottom-24   bg-gray-200 ">
-              <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
+          <div className=" ">
+            <div
+              className="section -bottom-24 justify-center items-center flex "
+              style={{
+                backgroundImage: `url(${_site.primaryPhoto.image.url})`,
+                height: "470px",
+                backgroundSize: "cover",
+              }}
+            >
+              <div className="text-4xl headColor font-light h-64 ">
                 <div className="flex gap-6">
                   <div>
                     {photoGallery && (
@@ -222,7 +229,7 @@ const Professional: Template<TemplateRenderProps> = ({
                 </div>
               </div>
             </div>
-            <div className="w-full flex flex-col md:flex-row  mt-4">
+            <div className="w-full flex flex-col md:flex-row  mt-4 centered-container">
               <div className="w-full md:w-2/3 ">
                 <div className="text-xl font-semibold mb-4">About me</div>
 
@@ -269,9 +276,9 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="hidden md:block mt-8">
         <Image image={_site.c_deskFooter}></Image>
       </span>
-      {/* <span className="block md:hidden">
+      <span className="block md:hidden">
         <Image image={_site.c_mobFooter}></Image>
-      </span> */}
+      </span>
     </>
   );
 };
