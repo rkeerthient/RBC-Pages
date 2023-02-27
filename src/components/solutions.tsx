@@ -3,7 +3,7 @@ export default function solutions(inpData: any) {
   let data = inpData.inpData;
   let clData = data.c_associatedSolutions;
   return (
-    <div className="bg-white ">
+    <div className="bg-white mt-4 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl tracking-tight headColor sm:text-4xl">
