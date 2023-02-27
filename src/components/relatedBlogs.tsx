@@ -1,9 +1,44 @@
 import * as React from "react";
 import Ce_blog from "../types/blog";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default function BlogPosts(inpData: any) {
   let data = inpData.inpData;
-
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div className="relative bg-gray-50 px-6 pt-16 pb-20 lg:px-8 lg:pt-24 lg:pb-28">
       <div className="absolute inset-0">
@@ -15,7 +50,8 @@ export default function BlogPosts(inpData: any) {
             Blogposts
           </h2>
         </div>
-        <div className="mx-auto mt-12 grid max-w-lg gap-5 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto  gap-5 lg:max-w-none ">
+        <Slider {...settings}>
           {data.c_associatedBlogs &&
             data.c_associatedBlogs.map((post: Ce_blog) => (
               <div
@@ -76,6 +112,7 @@ export default function BlogPosts(inpData: any) {
                 </div>
               </div>
             ))}
+        </Slider>
         </div>
       </div>
     </div>

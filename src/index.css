@@ -65,7 +65,6 @@
 }
 
 .slick-list {
-  width: 80%;
   margin: 0 auto !important;
 }
 
@@ -77,11 +76,9 @@
   right: 0;
 }
 .slick-prev {
-  left: 7% !important;
   z-index: 1;
 }
 .slick-next {
-  right: 7% !important;
   z-index: 1;
 }
 

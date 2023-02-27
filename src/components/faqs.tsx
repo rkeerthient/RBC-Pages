@@ -29,11 +29,14 @@ export default function FAQs(inpData: any) {
                 className="font-semibold text-indigo-600 hover:text-indigo-500"
               >
                 customer support
-              </a> 
+              </a>
               team.
             </p>
           </div>
-          <div className="mt-10 lg:col-span-7 lg:mt-0">
+          <div
+            className="mt-10 lg:col-span-7 lg:mt-0"
+            style={{ height: "300px", overflow: "scroll" }}
+          >
             <dl className="space-y-10">
               {clData &&
                 clData.map((faq: any) => (

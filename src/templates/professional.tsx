@@ -218,11 +218,13 @@ const Professional: Template<TemplateRenderProps> = ({
               </div>
             </div>
           </div> */}
-          {/* <BlogPosts inpData={cpy}></BlogPosts>
-          <ClientStories inpData={cpy}></ClientStories>
-          <FAQs inpData={cpy}></FAQs>
-          <Solutions inpData={cpy}></Solutions> */}
-          {/* <Teams inpData={cpy}></Teams> */}
+
+          {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
+          {c_associatedClientStories && (
+            <ClientStories inpData={cpy}></ClientStories>
+          )}
+          {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
+          {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
           {/* <div className="bg-white w-full">
             <div className="centered-container bg-white ">
               <div className="section  bg-white">
