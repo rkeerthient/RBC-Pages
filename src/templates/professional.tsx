@@ -49,8 +49,8 @@ export const config: TemplateConfig = {
       "name",
       "address",
       "mainPhone",
-      "description",
       "hours",
+      "description",
       "slug",
       "geocodedCoordinate",
       "services",
@@ -167,6 +167,7 @@ const Professional: Template<TemplateRenderProps> = ({
     hours,
     mainPhone,
     geocodedCoordinate,
+    description,
     services,
     photoGallery,
     c_associatedBlogs,
@@ -180,9 +181,9 @@ const Professional: Template<TemplateRenderProps> = ({
     <>
       <span>
         <div className="bg-gray-300 h-screen">
-          <div className="bg-white absolute w-full">
-            <div className="centered-container bg-white ">
-              <div className="section relative -bottom-24  bg-white">
+          <div className="bg-white   w-full">
+            <div className="centered-container ">
+              <div className="section -bottom-24   bg-gray-200 ">
                 <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
                   <div className="flex gap-6">
                     <div>
@@ -203,6 +204,27 @@ const Professional: Template<TemplateRenderProps> = ({
                             .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full flex mt-4">
+                <div className="w-2/3">
+                  {description}
+                  <div className=" p-16 mx-auto my-auto">
+                    {geocodedCoordinate && (
+                      <StaticMap
+                        latitude={geocodedCoordinate.latitude}
+                        longitude={geocodedCoordinate.longitude}
+                      ></StaticMap>
+                    )}
+                  </div>
+                </div>
+                <div className="w-1/3">
+                  <Contact address={address} phone={mainPhone}></Contact>
+                  <div className="mt-4">
+                    {hours && (
+                      <Hours title={"Restaurant Hours"} hours={hours} />
+                    )}
                   </div>
                 </div>
               </div>

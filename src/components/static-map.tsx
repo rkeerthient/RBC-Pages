@@ -11,7 +11,7 @@ const StaticMap = (props: Coordinates) => {
   return (
     <>
       <img
-        className="w-full"
+        className="w-auto"
         width="300"
         height="200"
         src={
@@ -19,7 +19,7 @@ const StaticMap = (props: Coordinates) => {
           `${latitude}` +
           "," +
           `${longitude}` +
-          "&zoom=14&size=600x400&maptype=roadmap&markers=color:red%7Clabel:LL%7C" +
+          "&zoom=12&size=600x400&maptype=roadmap&markers=color:red%7Clabel:LL%7C" +
           `${latitude}` +
           "," +
           `${longitude}` +
