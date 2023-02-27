@@ -178,19 +178,9 @@ const Professional: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <PageLayout _site={_site}>
-        {/* <Banner name={name} address={address} openTime={openTime}>
-          <div className="bg-white h-40 w-1/5 flex items-center justify-center text-center flex-col space-y-4 rounded-lg">
-            <div className="text-black text-base">Visit Us Today!</div>
-            <Cta
-              buttonText="Get Directions"
-              url="http://google.com"
-              style="primary-cta"
-            />
-          </div>
-        </Banner> */}
+      <span>
         <div className="bg-gray-300 h-screen">
-          {/* <div className="bg-white absolute w-full">
+          <div className="bg-white absolute w-full">
             <div className="centered-container bg-white ">
               <div className="section relative -bottom-24  bg-white">
                 <div className="text-4xl headColor font-light h-64 justify-center items-center flex ">
@@ -217,66 +207,16 @@ const Professional: Template<TemplateRenderProps> = ({
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
 
-          {/* {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>} */}
+          {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
           {c_associatedClientStories && (
             <ClientStories inpData={cpy}></ClientStories>
           )}
           {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
           {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
-          {/* <div className="bg-white w-full">
-            <div className="centered-container bg-white ">
-              <div className="section  bg-white">
-                <div className="centered-container">
-                  <div className="section">
-                    <div className="grid grid-cols-3 gap-x-10 gap-y-10">
-                      <div className="bg-gray-100 p-5 space-y-12">
-                        <Contact address={address} phone={mainPhone}></Contact>
-                        {services && <List list={services}></List>}
-                      </div>
-                      <div className="col-span-2 pt-5 space-y-10">
-                        <div>
-                          {hours && (
-                            <Hours title={"Restaurant Hours"} hours={hours} />
-                          )}
-                        </div>
-                        {geocodedCoordinate && (
-                          <StaticMap
-                            latitude={geocodedCoordinate.latitude}
-                            longitude={geocodedCoordinate.longitude}
-                          ></StaticMap>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
-        {/* <div className="centered-container">
-          <div className="section">
-            <div className="grid grid-cols-3 gap-x-10 gap-y-10">
-              <div className="bg-gray-100 p-5 space-y-12">
-                <Contact address={address} phone={mainPhone}></Contact>
-                {services && <List list={services}></List>}
-              </div>
-              <div className="col-span-2 pt-5 space-y-10">
-                <div>
-                  {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
-                </div>
-                {geocodedCoordinate && (
-                  <StaticMap
-                    latitude={geocodedCoordinate.latitude}
-                    longitude={geocodedCoordinate.longitude}
-                  ></StaticMap>
-                )}
-              </div>
-            </div>
-          </div>
-        </div> */}
-      </PageLayout>
+      </span>
     </>
   );
 };
