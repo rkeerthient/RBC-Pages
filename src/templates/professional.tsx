@@ -190,45 +190,47 @@ const Professional: Template<TemplateRenderProps> = ({
       </span>
       <div>
         <div className="bg-white w-full mb-4">
-          <div className=" ">
-            <div
-              className="section -bottom-24 justify-center items-center flex "
-              style={{
-                backgroundImage: `url(${_site.primaryPhoto.image.url})`,
-                height: "470px",
-                backgroundSize: "cover",
-              }}
-            >
-              <div className="text-4xl headColor font-light h-64 ">
-                <div className="flex gap-6">
-                  <div>
-                    {photoGallery && (
-                      <Image
-                        className="inline-block h-32 w-32 rounded-full"
-                        image={photoGallery[0]}
-                      />
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <div>{name.includes("-") ? name.split("-")[0] : name}</div>
-                    <div className="text-3xl">
-                      {name.includes("-")
-                        ? name
-                            .split("-")[1]
-                            .replace("RBC Wealth Management ", "")
-                        : ""}
+          <div>
+            <div className="relative text-center">
+              <Image
+                image={_site.primaryPhoto}
+                style={{ height: "470px" }}
+              ></Image>
+              <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2	">
+                <div className="text-4xl headColor font-light h-64">
+                  <div className="flex gap-6">
+                    <div>
+                      {photoGallery && (
+                        <Image
+                          className="inline-block h-32 w-32 rounded-full"
+                          image={photoGallery[0]}
+                        />
+                      )}
                     </div>
-                    <div className="text-2xl">
-                      {mainPhone &&
-                        mainPhone
-                          .replace("+1", "")
-                          .replace(/\D+/g, "")
-                          .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
+                    <div className="flex flex-col gap-3">
+                      <div>
+                        {name.includes("-") ? name.split("-")[0] : name}
+                      </div>
+                      <div className="text-3xl">
+                        {name.includes("-")
+                          ? name
+                              .split("-")[1]
+                              .replace("RBC Wealth Management ", "")
+                          : ""}
+                      </div>
+                      <div className="text-2xl">
+                        {mainPhone &&
+                          mainPhone
+                            .replace("+1", "")
+                            .replace(/\D+/g, "")
+                            .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="w-full flex flex-col md:flex-row  mt-4 centered-container">
               <div className="w-full md:w-2/3 ">
                 <div className="text-xl font-semibold mb-4">About me</div>
