@@ -34,6 +34,7 @@ import FAQs from "../components/faqs";
 import Solutions from "../components/solutions";
 import Teams from "../components/Team";
 import Insights from "../components/relatedInsights";
+import Schema from "../components/Schema";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -181,7 +182,7 @@ const Professional: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      {/* <Schema document={cpy}></Schema> */}
+      <Schema document={cpy}></Schema>
       <span className="hidden md:block">
         <Image image={_site.c_deskHeader}></Image>
       </span>
