@@ -196,7 +196,7 @@ const Professional: Template<TemplateRenderProps> = ({
               {_site.primaryPhoto && (
                 <Image
                   image={_site.primaryPhoto}
-                  style={{ height: "470px" }}
+                  style={{ maxHeight: "470px" }}
                 ></Image>
               )}
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2	">
@@ -205,7 +205,7 @@ const Professional: Template<TemplateRenderProps> = ({
                     <div>
                       {photoGallery && (
                         <Image
-                          className="inline-block h-32 w-32 rounded-full"
+                          className="inline-block h-32 !w-32 rounded-full"
                           image={photoGallery[0]}
                         />
                       )}
