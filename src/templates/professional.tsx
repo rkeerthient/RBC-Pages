@@ -193,10 +193,12 @@ const Professional: Template<TemplateRenderProps> = ({
         <div className="bg-white w-full mb-4">
           <div>
             <div className="relative text-center">
-              <Image
-                image={_site.primaryPhoto}
-                style={{ height: "470px" }}
-              ></Image>
+              {_site.primaryPhoto && (
+                <Image
+                  image={_site.primaryPhoto}
+                  style={{ height: "470px" }}
+                ></Image>
+              )}
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2	">
                 <div className="text-4xl headColor font-light h-64">
                   <div className="flex gap-6">

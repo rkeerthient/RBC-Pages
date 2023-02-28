@@ -44,7 +44,9 @@ const Schema = (props: any) => {
           },
           description: description,
           telephone: telephone,
-          image: document.photoGallery[0].image.url,
+          image: document.photoGallery
+            ? document.photoGallery[0].image.url
+            : "",
           jobTitle,
         }}
       />
