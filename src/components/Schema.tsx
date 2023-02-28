@@ -1,7 +1,6 @@
 import * as React from "react";
 import { JsonLd } from "react-schemaorg";
-import { Person, FAQPage, Place, ItemList } from "schema-dts";
-import Product from "../types/products";
+import { Person, FAQPage, Place, Blog } from "schema-dts";
 const Schema = (props: any) => {
   const { document } = props;
   const name = `${
@@ -14,6 +13,7 @@ const Schema = (props: any) => {
   const telephone = document.mainPhone;
   const description = document.decription;
   const faqsList: any = [];
+  const blogPosts: any = [];
   if (document.c_associatedFAQs) {
     document.c_associatedFAQs.map((item: any) => {
       faqsList.push({
@@ -26,7 +26,36 @@ const Schema = (props: any) => {
       });
     });
   }
-
+  if (document.c_associatedBlogs) {
+    document.c_associatedBlogs.map((item: any) => {
+      blogPosts.push({
+        "@type": "BlogPosting",
+        "@id": item.entityId,
+        mainEntityOfPage: document.landingPageUrl,
+        headline: item.name,
+        name: item.name,
+        description: item.description,
+        datePublished: "2019-05-14",
+        dateModified: "2019-05-14",
+        author: {
+          "@type": "Person",
+          "@id": document.entityId,
+          name: document.name.includes("-")
+            ? document.name.split("-")[0]
+            : document.name,
+        },
+        image: {
+          "@type": "ImageObject",
+          "@id": item.photoGallery[0].image.url,
+          url: item.photoGallery[0].image.url,
+          height: "362",
+          width: "388",
+        },
+        url: item.landingPageUrl,
+        keywords: [item.c_category],
+      });
+    });
+  }
   return (
     <>
       <JsonLd<Person>
@@ -58,7 +87,20 @@ const Schema = (props: any) => {
           mainEntity: faqsList,
         }}
       />
-
+      <JsonLd<Blog>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "@id": document.landingPageUrl,
+          mainEntityOfPage: document.landingPageUrl,
+          name: `${
+            document.name.includes("-")
+              ? document.name.split("-")[0]
+              : document.name
+          } blogs`,
+          blogPost: blogPosts,
+        }}
+      />
       {document.geocodedCoordinate && (
         <JsonLd<Place>
           item={{
