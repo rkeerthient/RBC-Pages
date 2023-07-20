@@ -35,6 +35,7 @@ import Solutions from "../components/solutions";
 import Teams from "../components/Team";
 import Insights from "../components/relatedInsights";
 import Schema from "../components/Schema";
+import Web2Lead from "../components/web2Lead";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -189,6 +190,7 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="block md:hidden">
         <Image image={_site.c_mobHeader}></Image>
       </span>
+
       <div>
         <div className="bg-white w-full mb-4">
           <div>
@@ -269,7 +271,6 @@ const Professional: Template<TemplateRenderProps> = ({
             </div>
           </div>
         </div>
-
         {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
         {c_associatedClientStories && (
           <ClientStories inpData={cpy}></ClientStories>
@@ -277,6 +278,9 @@ const Professional: Template<TemplateRenderProps> = ({
         {c_associatedInsights && <Insights inpData={cpy} />}
         {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
         {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
+        <div className="my-6">
+          <Web2Lead></Web2Lead>
+        </div>
       </div>
       <span className="hidden md:block mt-8">
         <Image image={_site.c_deskFooter}></Image>
