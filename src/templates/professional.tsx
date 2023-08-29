@@ -188,7 +188,6 @@ const Professional: Template<TemplateRenderProps> = ({
       setPathLink(window.location.href);
     }
   }, []);
-  console.log(pathLink);
 
   return (
     <>
