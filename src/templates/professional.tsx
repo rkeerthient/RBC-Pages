@@ -36,6 +36,7 @@ import Teams from "../components/Team";
 import Insights from "../components/relatedInsights";
 import Schema from "../components/Schema";
 import Web2Lead from "../components/web2Lead";
+import { useEffect, useState } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -58,6 +59,7 @@ export const config: TemplateConfig = {
       "geocodedCoordinate",
       "services",
       "photoGallery",
+      "c_advisorBio",
       "c_associatedBlogs.landingPageUrl",
       "c_associatedBlogs.description",
       "c_associatedBlogs.name",
@@ -167,19 +169,26 @@ const Professional: Template<TemplateRenderProps> = ({
     _site,
     name,
     address,
-    openTime,
     hours,
     mainPhone,
     geocodedCoordinate,
     description,
-    services,
+    c_advisorBio,
     photoGallery,
     c_associatedBlogs,
     c_associatedClientStories,
     c_associatedFAQs,
     c_associatedInsights,
     c_associatedSolutions,
+    uid,
   } = document;
+  const [pathLink, setPathLink] = useState<string>();
+  useEffect(() => {
+    if (typeof window === "object") {
+      setPathLink(window.location.href);
+    }
+  }, []);
+  console.log(pathLink);
 
   return (
     <>
@@ -239,8 +248,10 @@ const Professional: Template<TemplateRenderProps> = ({
             <div className="w-full flex flex-col md:flex-row  mt-4 centered-container">
               <div className="w-full md:w-2/3 ">
                 <div className="text-xl font-semibold mb-4">About me</div>
+                <div className="px-2">
+                  {c_advisorBio ? c_advisorBio : description}
+                </div>
 
-                {description}
                 <div className="py-4 px-16 mx-auto my-auto hidden md:block">
                   {geocodedCoordinate && (
                     <StaticMap
@@ -288,6 +299,14 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="block md:hidden">
         <Image image={_site.c_mobFooter}></Image>
       </span>
+      {pathLink?.includes("preview") && (
+        <a
+          href={`https://sandbox.yext.com/s/3194448/entity/edit3?entityIds=${uid}`}
+          className="border bg-gray-200 px-4 py-2 fixed bottom-10 right-10"
+        >
+          Edit
+        </a>
+      )}
     </>
   );
 };
