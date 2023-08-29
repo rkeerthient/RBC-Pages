@@ -1,13 +1,3 @@
-/**
- * This is an example of how to create a template that makes use of streams data.
- * The stream data originates from Yext's Knowledge Graph. When a template in
- * concert with a stream is built by the Yext Sites system, a static html page
- * is generated for every corresponding (based on the filter) stream document.
- *
- * Another way to think about it is that a page will be generated using this
- * template for every eligible entity in your Knowledge Graph.
- */
-
 import {
   GetHeadConfig,
   GetPath,
@@ -36,14 +26,13 @@ import Teams from "../components/Team";
 import Insights from "../components/relatedInsights";
 import Schema from "../components/Schema";
 import Web2Lead from "../components/web2Lead";
-import { useEffect, useState } from "react";
 
 /**
  * Required when Knowledge Graph data is used for a template.
  */
 export const config: TemplateConfig = {
   stream: {
-    $id: "my-stream-id-1",
+    $id: "my-stream-id-2",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -59,7 +48,6 @@ export const config: TemplateConfig = {
       "geocodedCoordinate",
       "services",
       "photoGallery",
-      "c_advisorBio",
       "c_associatedBlogs.landingPageUrl",
       "c_associatedBlogs.description",
       "c_associatedBlogs.name",
@@ -85,11 +73,13 @@ export const config: TemplateConfig = {
       "c_associatedSolutions.name",
       "c_associatedSolutions.c_category",
       "c_associatedSolutions.photoGallery",
+      "c_templateBBanner",
+      "c_brandLogo",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
       entityTypes: ["financialProfessional"],
-      savedFilterIds: ["1306250257"],
+      savedFilterIds: ["1306234060"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -169,26 +159,22 @@ const Professional: Template<TemplateRenderProps> = ({
     _site,
     name,
     address,
+    openTime,
     hours,
     mainPhone,
     geocodedCoordinate,
     description,
-    c_advisorBio,
+    services,
     photoGallery,
     c_associatedBlogs,
     c_associatedClientStories,
     c_associatedFAQs,
     c_associatedInsights,
     c_associatedSolutions,
-    uid,
+    c_templateBBanner,
+    c_brandLogo,
   } = document;
-  const [pathLink, setPathLink] = useState<string>();
-  useEffect(() => {
-    if (typeof window === "object") {
-      setPathLink(window.location.href);
-    }
-  }, []);
-
+  console.log(photoGallery);
   return (
     <>
       <Schema document={cpy}></Schema>
@@ -203,55 +189,86 @@ const Professional: Template<TemplateRenderProps> = ({
         <div className="bg-white w-full mb-4">
           <div>
             <div className="relative text-center">
-              {_site.primaryPhoto && (
+              {_site.c_templateBBanner && (
                 <Image
-                  image={_site.primaryPhoto}
+                  image={_site.c_templateBBanner}
                   style={{ maxHeight: "470px" }}
                 ></Image>
               )}
               <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2	">
                 <div className="text-4xl headColor font-light h-64">
                   <div className="flex gap-6">
-                    <div>
-                      {photoGallery && (
-                        <Image
-                          className="inline-block h-32 !w-32 rounded-full"
-                          image={photoGallery[0]}
-                        />
+                    <div style={{ width: "16em" }}>
+                      {_site.c_brandLogo && (
+                        <Image className="w-15" image={_site.c_brandLogo} />
                       )}
                     </div>
-                    <div className="flex flex-col gap-3">
-                      <div>
-                        {name.includes("-") ? name.split("-")[0] : name}
-                      </div>
-                      <div className="text-3xl">
+                    {/* <div className="flex flex-col gap-3">
+                      <div>RBC Wealth Management</div> */}
+                    {/* <div className="text-3xl">
                         {name.includes("-")
                           ? name
                               .split("-")[1]
                               .replace("RBC Wealth Management ", "")
                           : ""}
-                      </div>
-                      <div className="text-2xl">
+                      </div> */}
+                    {/* <div className="text-2xl">
                         {mainPhone &&
                           mainPhone
                             .replace("+1", "")
                             .replace(/\D+/g, "")
                             .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
-                      </div>
+                      </div> */}
+                    {/* </div> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex">
+              <div className="" style={{ width: "50%", padding: "3em 14em" }}>
+                {photoGallery && (
+                  <img src={photoGallery[0].image.url} className="w-96"></img>
+                )}
+              </div>
+              <div className="flex flex-col gap-3 mt-32">
+                <div className="text-3xl text-[#003168]">
+                  {name.includes("-") ? name.split("-")[0] : name}
+                </div>
+                <div className="text-2xl">
+                  {name.includes("-")
+                    ? name.split("-")[1].replace("RBC Wealth Management ", "")
+                    : ""}
+                </div>
+                <div className="text-2xl">
+                  {mainPhone &&
+                    mainPhone
+                      .replace("+1", "")
+                      .replace(/\D+/g, "")
+                      .replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")}
+                </div>
+                <div className="  gap-y-5">
+                  <div className="text-xl font-semibold mb-4">Address</div>
+
+                  <div className="  gap-y-3">
+                    <div>{address.line1}</div>
+                    {address.line2 && <div>{address.line2}</div>}
+                    <div>
+                      {address.city}, {address.region} {address.postalCode}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="p-20">
+              <div className="text-xl font-semibold mb-4 text-center">
+                About me
+              </div>
 
-            <div className="w-full flex flex-col md:flex-row  mt-4 centered-container">
-              <div className="w-full md:w-2/3 ">
-                <div className="text-xl font-semibold mb-4">About me</div>
-                <div className="px-2">
-                  {c_advisorBio ? c_advisorBio : description}
-                </div>
-
-                <div className="py-4 px-16 mx-auto my-auto hidden md:block">
+              <div className="text-center px-32">{description}</div>
+            </div>
+            <div className="w-full flex flex-col md:flex-row  mt-4 centered-container justify-between">
+              <div>
+                <div>
                   {geocodedCoordinate && (
                     <StaticMap
                       latitude={geocodedCoordinate.latitude}
@@ -261,7 +278,7 @@ const Professional: Template<TemplateRenderProps> = ({
                 </div>
               </div>
               <div className="w-full md:w-1/3">
-                <span className=" hidden md:block">
+                {/* <span className=" hidden md:block">
                   <div className="  gap-y-5">
                     <div className="text-xl font-semibold mb-4">Address</div>
 
@@ -273,21 +290,27 @@ const Professional: Template<TemplateRenderProps> = ({
                       </div>
                     </div>
                   </div>
-                </span>
+                </span> */}
                 <div className="mt-8">
                   {hours && <Hours title={"I'm available on"} hours={hours} />}
                 </div>
               </div>
             </div>
+            <div className="pt-20">
+              {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
+            </div>
           </div>
         </div>
-        {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
+        <div className="pt-20">
+          {" "}
+          {c_associatedBlogs && <BlogPosts inpData={cpy}></BlogPosts>}
+        </div>
+
         {c_associatedClientStories && (
           <ClientStories inpData={cpy}></ClientStories>
         )}
-        {c_associatedInsights && <Insights inpData={cpy} />}
+        {/* {c_associatedInsights && <Insights inpData={cpy} />} */}
         {c_associatedFAQs && <FAQs inpData={cpy}></FAQs>}
-        {c_associatedSolutions && <Solutions inpData={cpy}></Solutions>}
         <div className="my-6">
           <Web2Lead></Web2Lead>
         </div>
@@ -298,14 +321,6 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="block md:hidden">
         <Image image={_site.c_mobFooter}></Image>
       </span>
-      {pathLink?.includes("preview") && (
-        <a
-          href={`https://sandbox.yext.com/s/3194448/entity/edit3?entityIds=${uid}`}
-          className="border bg-gray-200 px-4 py-2 fixed bottom-10 right-10"
-        >
-          Edit
-        </a>
-      )}
     </>
   );
 };

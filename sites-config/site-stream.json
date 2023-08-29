@@ -10,7 +10,9 @@
     "c_deskFooter",
     "c_mobHeader",
     "c_mobFooter",
-    "primaryPhoto"
+    "primaryPhoto",
+    "c_templateBBanner",
+    "c_brandLogo"
   ],
   "localization": {
     "locales": ["en"],
