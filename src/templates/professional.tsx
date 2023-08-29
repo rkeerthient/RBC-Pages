@@ -19,12 +19,7 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import * as React from "react";
-import Banner from "../components/banner";
-import Contact from "../components/contact";
-import Cta from "../components/cta";
 import Hours from "../components/hours";
-import List from "../components/list";
-import PageLayout from "../components/page-layout";
 import StaticMap from "../components/static-map";
 import "../index.css";
 import { Image } from "@yext/pages/components";
@@ -32,7 +27,6 @@ import BlogPosts from "../components/relatedBlogs";
 import ClientStories from "../components/clientStories";
 import FAQs from "../components/faqs";
 import Solutions from "../components/solutions";
-import Teams from "../components/Team";
 import Insights from "../components/relatedInsights";
 import Schema from "../components/Schema";
 import Web2Lead from "../components/web2Lead";

@@ -9,12 +9,7 @@ import {
   TemplateRenderProps,
 } from "@yext/pages";
 import * as React from "react";
-import Banner from "../components/banner";
-import Contact from "../components/contact";
-import Cta from "../components/cta";
 import Hours from "../components/hours";
-import List from "../components/list";
-import PageLayout from "../components/page-layout";
 import StaticMap from "../components/static-map";
 import "../index.css";
 import { Image } from "@yext/pages/components";
@@ -22,8 +17,6 @@ import BlogPosts from "../components/relatedBlogs";
 import ClientStories from "../components/clientStories";
 import FAQs from "../components/faqs";
 import Solutions from "../components/solutions";
-import Teams from "../components/Team";
-import Insights from "../components/relatedInsights";
 import Schema from "../components/Schema";
 import Web2Lead from "../components/web2Lead";
 
@@ -120,8 +113,6 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
  * This can include the title, meta tags, script tags, etc.
  */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
   document,
 }): HeadConfig => {
   return {
@@ -149,30 +140,22 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
  * components any way you'd like as long as it lives in the src folder (though you should not put
  * them in the src/templates folder as this is specific for true template files).
  */
-const Professional: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}) => {
+const Professional: Template<TemplateRenderProps> = ({ document }) => {
   const cpy = document;
   const {
     _site,
     name,
     address,
-    openTime,
     hours,
     mainPhone,
     geocodedCoordinate,
     description,
-    services,
     photoGallery,
     c_associatedBlogs,
     c_associatedClientStories,
     c_associatedFAQs,
-    c_associatedInsights,
     c_associatedSolutions,
-    c_templateBBanner,
-    c_brandLogo,
+    uid,
   } = document;
   const [pathLink, setPathLink] = React.useState<string>();
   React.useEffect(() => {
