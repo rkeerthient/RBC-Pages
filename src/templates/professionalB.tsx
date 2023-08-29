@@ -174,7 +174,12 @@ const Professional: Template<TemplateRenderProps> = ({
     c_templateBBanner,
     c_brandLogo,
   } = document;
-  console.log(photoGallery);
+  const [pathLink, setPathLink] = React.useState<string>();
+  React.useEffect(() => {
+    if (typeof window === "object") {
+      setPathLink(window.location.href);
+    }
+  }, []);
   return (
     <>
       <Schema document={cpy}></Schema>
@@ -321,6 +326,14 @@ const Professional: Template<TemplateRenderProps> = ({
       <span className="block md:hidden">
         <Image image={_site.c_mobFooter}></Image>
       </span>
+      {pathLink?.includes("preview") && (
+        <a
+          href={`https://sandbox.yext.com/s/3194448/entity/edit3?entityIds=${uid}`}
+          className="border bg-gray-200 px-4 py-2 fixed bottom-10 right-10"
+        >
+          Edit
+        </a>
+      )}
     </>
   );
 };
