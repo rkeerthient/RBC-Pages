@@ -68,6 +68,7 @@ export const config: TemplateConfig = {
       "c_associatedSolutions.photoGallery",
       "c_templateBBanner",
       "c_brandLogo",
+      "c_advisorBio",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -155,6 +156,7 @@ const Professional: Template<TemplateRenderProps> = ({ document }) => {
     c_associatedClientStories,
     c_associatedFAQs,
     c_associatedSolutions,
+    c_advisorBio,
     uid,
   } = document;
   const [pathLink, setPathLink] = React.useState<string>();
@@ -252,7 +254,9 @@ const Professional: Template<TemplateRenderProps> = ({ document }) => {
                 About me
               </div>
 
-              <div className="text-center px-32">{description}</div>
+              <div className="text-center px-32">
+                {c_advisorBio ? c_advisorBio : description}
+              </div>
             </div>
             <div className="w-full flex flex-col md:flex-row  mt-4 centered-container justify-between">
               <div>
