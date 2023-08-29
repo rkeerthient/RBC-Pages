@@ -85,7 +85,9 @@ export default function BlogPosts(inpData: any) {
                           {post.name}
                         </p>
                         <p className="mt-3 text-base text-gray-500">
-                          {post.description}
+                          {post.c_blogShortDescription
+                            ? post.c_blogShortDescription
+                            : post.description}
                         </p>
                       </a>
                     </div>
