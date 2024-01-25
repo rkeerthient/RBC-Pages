@@ -214,7 +214,7 @@ const Loaction: Template<TemplateRenderProps> = ({
                           <IoMdPin className="h-6 w-6"></IoMdPin>
                         </div>
                         <div className="flex flex-col">
-                          <div className="text-[20px] font-light text-[#003168]">
+                          <div className="text-[20px] font-normal text-[#003168]">
                             Our team is located at
                           </div>
                           <div>{address.line1}</div>
@@ -231,7 +231,7 @@ const Loaction: Template<TemplateRenderProps> = ({
                           <IoIosPeople className="h-6 w-6"></IoIosPeople>
                         </div>
                         <div className="flex flex-col">
-                          <div className="text-[20px] font-light text-[#003168]">
+                          <div className="text-[20px] font-normal text-[#003168]">
                             Our Advisors
                           </div>
                           <a className="flex gap-2 items-center text-[#006ac3] hover:underline hover:cursor-pointer hover:bg-[#e3f4ff]">
