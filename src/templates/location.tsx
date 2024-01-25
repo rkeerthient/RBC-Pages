@@ -268,10 +268,10 @@ const Loaction: Template<TemplateRenderProps> = ({
                             </div>
                             <div className="flex flex-col">
                               <div className="text-[#002750] text-2xl font-light">
-                                {item.name.split("-")[0].trim()}
+                                {item.name.split("-")[0]}
                               </div>
                               <div className="text-[#585858] text-lg font-light">
-                                {item.name.split("-")[1].trim()}
+                                {item.name.split("-")[1]}
                               </div>
                               <a
                                 href={`/${item.slug}`}
