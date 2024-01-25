@@ -43,7 +43,7 @@
 .accordion-content {
   transition: 0.2s ease-out;
 }
-
+/**test*/
 .accordion__panel {
   padding-top: 1em;
   padding-bottom: 1em;
