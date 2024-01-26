@@ -12,6 +12,7 @@ function classNames(...classes: any) {
 export default function ClientStories(inpData: any) {
   let data = inpData.inpData;
   let clData = data.c_associatedClientStories;
+  let title = inpData.title;
   const settings = {
     dots: false,
     infinite: false,
@@ -86,7 +87,7 @@ export default function ClientStories(inpData: any) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl tracking-tight headColor sm:text-4xl">
-            Testimonials
+            {inpData.title || `Testimonials`}
           </h2>
           <p className="mt-2 text-lg  text-gray-600">
             We have worked with thousands of amazing people
