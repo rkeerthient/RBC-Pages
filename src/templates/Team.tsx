@@ -22,6 +22,7 @@ import ClientStories from "../components/clientStories";
 import BlogPosts from "../components/relatedBlogs";
 import Solutions from "../components/solutions";
 import TeamMembersCarousel from "../components/TeamMembersCarousel";
+import ContactUs from "../components/ContactUs";
 /**
  * Required when Knowledge Graph data is used for a template.
  */
@@ -184,10 +185,10 @@ const Team: Template<TemplateRenderProps> = ({
     uid,
   } = document;
   const [pathLink, setPathLink] = useState<string>();
-  console.log(JSON.stringify(c_associatedAdvisors));
-
+  const [showPopUp, setShowPopUp] = useState(false);
   return (
     <>
+      {showPopUp && <ContactUs showPopUp={(e) => setShowPopUp(e)} />}
       <Schema document={cpy}></Schema>
       <span className="hidden md:block">
         <Image image={_site.c_deskHeader}></Image>
@@ -195,7 +196,6 @@ const Team: Template<TemplateRenderProps> = ({
       <span className="block md:hidden">
         <Image image={_site.c_mobHeader}></Image>
       </span>
-
       <div>
         <div className="bg-white w-full mb-4 ">
           <div>
@@ -207,6 +207,7 @@ const Team: Template<TemplateRenderProps> = ({
                 mainPhone={mainPhone}
                 address={address}
                 title=""
+                showPopUp={(e) => setShowPopUp(e)}
               ></Banner>
             )}
             <div className="flex flex-col  md:flex-row  mt-16 gap-16 centered-container ">

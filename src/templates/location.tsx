@@ -28,6 +28,7 @@ import Banner from "../components/banner";
 import Hours from "../components/hours";
 import "../index.css";
 import { IoOpenOutline } from "react-icons/io5";
+import ContactUs from "../components/ContactUs";
 /**
  * Required when Knowledge Graph data is used for a template.
  */
@@ -154,10 +155,11 @@ const Loaction: Template<TemplateRenderProps> = ({
     uid,
   } = document;
   const [pathLink, setPathLink] = useState<string>();
-  console.log(JSON.stringify(c_associatedAdvisors));
+  const [showPopUp, setShowPopUp] = useState(false);
 
   return (
     <>
+      {showPopUp && <ContactUs showPopUp={(e) => setShowPopUp(e)} />}
       <Schema document={cpy}></Schema>
       <span className="hidden md:block">
         <Image image={_site.c_deskHeader}></Image>
@@ -177,6 +179,7 @@ const Loaction: Template<TemplateRenderProps> = ({
                 mainPhone={mainPhone}
                 address={address}
                 title=""
+                showPopUp={(e) => setShowPopUp(e)}
               ></Banner>
             )}
             <div className="flex flex-col  md:flex-row  mt-16 gap-16 centered-container ">
